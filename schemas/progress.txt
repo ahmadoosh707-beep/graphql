@@ -1,0 +1,203 @@
+{
+  "__type": {
+    "name": "progress",
+    "fields": [
+      {
+        "name": "campus",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "createdAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "event",
+        "type": {
+          "kind": "OBJECT",
+          "name": "event",
+          "ofType": null
+        }
+      },
+      {
+        "name": "eventId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "grade",
+        "type": {
+          "kind": "SCALAR",
+          "name": "numeric",
+          "ofType": null
+        }
+      },
+      {
+        "name": "group",
+        "type": {
+          "kind": "OBJECT",
+          "name": "group",
+          "ofType": null
+        }
+      },
+      {
+        "name": "groupId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "id",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "bigint"
+          }
+        }
+      },
+      {
+        "name": "isDone",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Boolean"
+          }
+        }
+      },
+      {
+        "name": "object",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "object"
+          }
+        }
+      },
+      {
+        "name": "objectId",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "path",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "pathByPath",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "path"
+          }
+        }
+      },
+      {
+        "name": "results",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "results_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "result_aggregate"
+          }
+        }
+      },
+      {
+        "name": "updatedAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "user",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "user"
+          }
+        }
+      },
+      {
+        "name": "userId",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "userLogin",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "version",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      }
+    ]
+  }
+}

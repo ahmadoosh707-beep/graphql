@@ -1,0 +1,229 @@
+{
+  "__type": {
+    "name": "result",
+    "fields": [
+      {
+        "name": "attrs",
+        "type": {
+          "kind": "SCALAR",
+          "name": "jsonb",
+          "ofType": null
+        }
+      },
+      {
+        "name": "audits",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "audits_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "audit_aggregate"
+          }
+        }
+      },
+      {
+        "name": "campus",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "createdAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "event",
+        "type": {
+          "kind": "OBJECT",
+          "name": "event",
+          "ofType": null
+        }
+      },
+      {
+        "name": "eventId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "grade",
+        "type": {
+          "kind": "SCALAR",
+          "name": "numeric",
+          "ofType": null
+        }
+      },
+      {
+        "name": "group",
+        "type": {
+          "kind": "OBJECT",
+          "name": "group",
+          "ofType": null
+        }
+      },
+      {
+        "name": "groupId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "id",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "invalidatedAt",
+        "type": {
+          "kind": "SCALAR",
+          "name": "timestamptz",
+          "ofType": null
+        }
+      },
+      {
+        "name": "invalidationReason",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "isLast",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      {
+        "name": "object",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "object"
+          }
+        }
+      },
+      {
+        "name": "objectId",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "path",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "pathByPath",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "path"
+          }
+        }
+      },
+      {
+        "name": "type",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "updatedAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "user",
+        "type": {
+          "kind": "OBJECT",
+          "name": "user",
+          "ofType": null
+        }
+      },
+      {
+        "name": "userId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "userLogin",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "version",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      }
+    ]
+  }
+}

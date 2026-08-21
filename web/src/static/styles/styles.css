@@ -1,0 +1,1189 @@
+@font-face {
+    font-family: "MyCustomFont";
+    src: url("../fonts/smallest_pixel-7.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: "MyCustomFont", sans-serif;
+    min-height: 100vh;
+    background-color: #02081b;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#login-root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.login-card {
+    width: min(600px, 90vw);
+    background: rgba(5, 18, 55, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 32px 100px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    padding: 32px;
+    margin: 5%;
+    margin-top: 50%vh;
+}
+
+.login-header h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+.login-header p {
+    margin: 0 0 28px;
+    color: #b0c4ff;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #9fb0d6;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    min-height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f8fbff;
+    font-size: 1rem;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #7c9dff;
+}
+
+.login-button-container {
+    display: grid;
+    place-items: center;
+}
+
+.btn-5,
+.btn-5 *,
+.btn-5::before,
+.btn-5::after {
+    box-sizing: border-box;
+}
+
+.btn-5 {
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    -webkit-appearance: button;
+    background: #02081b;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    padding: 0.8rem 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.2s ease;
+}
+
+.btn-5 span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-5::before {
+    --tilt: 1.2rem;
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(-100% - var(--tilt));
+    width: calc(100% + var(--tilt));
+    height: 100%;
+    background: #fff;
+
+    clip-path: polygon(0 0,
+            calc(100% - var(--tilt)) 0,
+            100% 50%,
+            calc(100% - var(--tilt)) 100%,
+            0 100%);
+
+    transform: translateX(0);
+    transition: transform 0.25s ease;
+    z-index: 1;
+}
+
+.btn-5:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-5:hover {
+    color: #000;
+}
+
+.login-footer {
+    margin-top: 22px;
+    text-align: center;
+    color: #9fb0d6;
+    font-size: 0.9rem;
+}
+
+.status-message {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(153, 240, 183, 0.2);
+    background: rgba(77, 129, 255, 0.08);
+    color: #b5f5c5;
+}
+
+.status-message.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .login-card {
+        width: 100%;
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.achievements-bar {
+    width: 100%;
+    height: 50px;
+    background: rgba(5, 18, 55, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(18px);
+    box-sizing: border-box;
+}
+
+.achievements-track {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-left: 30px;
+    color: #b0c4ff;
+    font-size: 1.1rem;
+}
+
+.dashboard-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 20px;
+    min-height: 0;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-card,
+.dashboard-card {
+    min-width: 0;
+    max-width: 100%;
+    background: rgba(5, 18, 55, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow:
+        0 32px 100px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
+    padding: 28px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    margin: 0 0 15px;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+}
+
+.level {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #b0c4ff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.profile {
+    width: 90%;
+    max-width: 900px;
+    min-width: 0;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+    gap: 15px;
+    min-width: 0;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 18px;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.info-item span {
+    display: block;
+    color: #9fb0d6;
+    margin-bottom: 8px;
+    min-width: 0;
+}
+
+.info-item strong {
+    font-size: 1.3rem;
+}
+
+.label {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.value {
+    font-size: 18px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats {
+    margin-top: 30px;
+}
+
+.stat {
+    margin-bottom: 25px;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: #222;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-up,
+.progress-down {
+    width: 100%;
+    height: 100%;
+}
+
+.progress-up {
+    background: #22c55e;
+}
+
+.progress-down {
+    background: #ef4444;
+}
+
+.stat-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.right-dashboard {
+    display: grid;
+    grid-template-rows:
+        auto auto auto;
+    align-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+    gap: 0;
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+}
+
+.dashboard-card h2 {
+    margin: 0 0 15px;
+    font-size: 1.4rem;
+}
+
+.card-content {
+    color: #b0c4ff;
+}
+
+.bar-container {
+    width: 100%;
+    height: 100%;
+    background: #222;
+    overflow: hidden;
+}
+
+.bar {
+    width: 150px;
+    height: 100%;
+    background: #00aaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    animation: moveBar 7s linear infinite;
+}
+
+@keyframes moveBar {
+    from {
+        transform: translateX(-150px);
+    }
+
+    to {
+        transform: translateX(900px);
+    }
+}
+
+.audit-button-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: fit-content;
+    min-width: 0;
+}
+
+.Audits-card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 20px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.audit-button-container {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.audit-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 70%;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.audit-buttons button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.audits-progress-button,
+.progress-back-button,
+.audits-show-button,
+.logout {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 1rem;
+    font-family: inherit;
+    font-size: clamp(8px, 1.25vw, 17px);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #b0c4ff;
+    color: ghostwhite;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.audits-progress-button span,
+.progress-back-button span,
+.audits-show-button span,
+.logout span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    white-space: normal;
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.audits-progress-button::before,
+.audits-progress-button::after,
+.progress-back-button::before,
+.progress-back-button::after,
+.audits-show-button::before,
+.audits-show-button::after,
+.logout::before,
+.logout::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.audits-progress-button::before,
+.progress-back-button::before,
+.audits-show-button::before,
+.logout::before {
+    content: "";
+    background: #00aaff;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition:
+        transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.audits-progress-button:hover::before,
+.progress-back-button:hover::before,
+.audits-show-button:hover::before,
+.logout:hover::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.logout {
+    padding: 0.9rem 1rem;
+}
+
+.grades-card,
+.stats-card {
+    height: fit-content;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+    min-width: 0;
+}
+
+.sub {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 60ch;
+    line-height: 1.5;
+}
+
+.progress-svg-container {
+    width: 100%;
+    height: 100vh;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color, currentColor);
+}
+
+.progress-svg-container svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex: none;
+    color: inherit;
+}
+
+.progress-svg-container svg text {
+    pointer-events: none;
+}
+
+.progress-svg-container svg g {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html:has(.progress-svg-container),
+body:has(.progress-svg-container) {
+    overflow: hidden;
+}
+
+.progress-page-content {
+    width: 100%;
+    height: 100vh;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.progress-page {
+    width: 90%;
+    height: 90vh;
+    margin: 5vh 5%;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-page-header {
+    width: 100%;
+    height: 64px;
+    min-height: 64px;
+    padding: 0 2%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.progress-page-content {
+    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-page-content .progress-svg-container {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+}
+
+.progress-page-content .progress-svg-container svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.svg-view {
+    width: 70%;
+    height: 70vh;
+    margin: 15vh 15%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.svg-view>.header {
+    width: 100%;
+    height: 64px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.svg-view>.panel {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.svg-view #svg-mount {
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.svg-view .xp-chart {
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.xp-chart-title {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.xp-chart-total {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.xp-chart-grid line {
+    stroke: ghostwhite;
+    stroke-width: 1;
+    stroke-dasharray: 2 5;
+    opacity: 0.15;
+}
+
+.xp-chart-area {
+    fill: url(#xpAreaGradient);
+    stroke: none;
+    pointer-events: none;
+}
+
+.xp-chart-line {
+    fill: none;
+    stroke: ghostwhite;
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    filter:
+        drop-shadow(0 0 5px rgba(248, 248, 255, 0.25));
+}
+
+.xp-chart-dot {
+    fill: #02081b;
+    stroke: ghostwhite;
+    stroke-width: 1.5;
+}
+
+.xp-chart-dot-current {
+    fill: ghostwhite;
+    stroke: ghostwhite;
+    stroke-width: 2;
+    filter: url(#xpGlow);
+}
+
+.xp-chart-pulse {
+    fill: none;
+    stroke: ghostwhite;
+    stroke-width: 1.5;
+    pointer-events: none;
+}
+
+.xp-chart-hover-line {
+    stroke: ghostwhite;
+    stroke-width: 1;
+    stroke-dasharray: 3 4;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.xp-chart-hover-point {
+    fill: ghostwhite;
+    stroke: #02081b;
+    stroke-width: 2;
+    filter: url(#xpGlow);
+    pointer-events: none;
+}
+
+.xp-chart-tooltip {
+    pointer-events: none;
+}
+
+.xp-chart-tooltip rect {
+    fill: #071126;
+    stroke: ghostwhite;
+    stroke-width: 1;
+    opacity: 0.96;
+}
+
+.xp-chart-tooltip-title {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.xp-chart-tooltip-xp {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.xp-chart-tooltip-date {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7px;
+    opacity: 0.65;
+}
+
+.xp-chart-axis {
+    stroke: ghostwhite;
+    stroke-width: 1;
+    opacity: 0.2;
+}
+
+.xp-chart-date {
+    fill: ghostwhite;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8px;
+    opacity: 0.55;
+}
+
+.side-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-right:
+        1px solid rgba(255, 255, 255, 0.08);
+    background:
+        rgba(255, 255, 255, 0.02);
+    z-index: 100;
+}
+
+.dashboard {
+    width: calc(100% - 90px);
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    #app {
+        height: 100vh;
+        min-height: 0;
+        overflow: hidden;
+        align-items: flex-start;
+    }
+
+    .dashboard {
+        width: calc(100% - 90px);
+        height: 100vh;
+        min-height: 0;
+        margin: 0;
+        padding: 24px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .dashboard-grid {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        overflow: visible;
+    }
+
+    .profile-card {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        flex-shrink: 0;
+    }
+
+    .right-dashboard {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        flex-shrink: 0;
+    }
+
+    .right-dashboard>* {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .Audits-card {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        flex-shrink: 0;
+    }
+
+    .profile-info {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .audit-buttons {
+        max-width: 80%;
+    }
+
+    .audit-buttons button span {
+        font-size: clamp(8px, 2.5vw, 17px);
+    }
+}
+
+@media (max-width: 700px) {
+    .progress-svg-container {
+        height: 100dvh;
+    }
+
+    .progress-page-content {
+        height: 100dvh;
+    }
+
+    .progress-page {
+        width: 90%;
+        height: 90dvh;
+        margin: 5dvh 5%;
+    }
+
+    .progress-page-header {
+        height: 56px;
+        min-height: 56px;
+        padding: 0 2%;
+    }
+
+    .audit-buttons {
+        max-width: 90%;
+        gap: 10px;
+    }
+
+    .audits-progress-button,
+    .progress-back-button,
+    .audits-show-button {
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        letter-spacing: 0.03rem;
+    }
+
+    .audit-buttons button span {
+        font-size: clamp(7px, 2.8vw, 15px);
+    }
+}
+
+@media (max-width: 640px) {
+    .menu {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .dashboard {
+        width: calc(100% - 90px);
+        height: 100vh;
+        min-height: 0;
+        padding: 12px;
+        margin: 0;
+        gap: 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .dashboard-grid {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+
+        overflow: visible;
+    }
+
+    .profile-card,
+    .dashboard-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: 16px;
+        border-radius: 18px;
+        flex-shrink: 0;
+    }
+
+    .profile-card {
+        height: auto;
+    }
+
+    .profile {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .profile-info {
+        width: 100%;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .info-item {
+        min-width: 0;
+        padding: 10px;
+    }
+
+    .value {
+        font-size: clamp(10px, 3vw, 18px);
+    }
+
+    .right-dashboard {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+
+        flex-shrink: 0;
+    }
+
+    .right-dashboard>* {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        flex-shrink: 0;
+    }
+
+    .Audits-card {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .audit-button-container {
+        width: 100%;
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .audit-buttons {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .audit-buttons button {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .audits-progress-button,
+    .progress-back-button,
+    .audits-show-button {
+        width: 100%;
+        min-width: 0;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+        letter-spacing: 0.02rem;
+    }
+
+    .audit-buttons button span {
+        font-size: clamp(6px, 2.8vw, 13px);
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+}
+
+@media (max-width: 380px) {
+    .audit-buttons {
+        gap: 6px;
+    }
+
+    .audit-buttons button {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .audit-buttons button span {
+        font-size: 8px;
+        letter-spacing: 0;
+        white-space: normal;
+        overflow: visible;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+}
+
+.error-container{
+    display: flex;
+    justify-content: center;
+    color: #ff3333;
+    font-size: large;
+    margin-bottom: 1%;
+}

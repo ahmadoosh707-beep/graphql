@@ -1,0 +1,291 @@
+{
+  "__type": {
+    "name": "group",
+    "fields": [
+      {
+        "name": "auditors",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "auditors_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "audit_aggregate"
+          }
+        }
+      },
+      {
+        "name": "campus",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "cancelReason",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "canceledAt",
+        "type": {
+          "kind": "SCALAR",
+          "name": "timestamptz",
+          "ofType": null
+        }
+      },
+      {
+        "name": "captain",
+        "type": {
+          "kind": "OBJECT",
+          "name": "user_public_view",
+          "ofType": null
+        }
+      },
+      {
+        "name": "captainId",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "captainLogin",
+        "type": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      {
+        "name": "captainRecords",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "captainRecords_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "record_public_view_aggregate"
+          }
+        }
+      },
+      {
+        "name": "createdAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "event",
+        "type": {
+          "kind": "OBJECT",
+          "name": "event",
+          "ofType": null
+        }
+      },
+      {
+        "name": "eventId",
+        "type": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      {
+        "name": "id",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "members",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "members_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "group_user_aggregate"
+          }
+        }
+      },
+      {
+        "name": "object",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "object"
+          }
+        }
+      },
+      {
+        "name": "objectId",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "path",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "pathByPath",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "path"
+          }
+        }
+      },
+      {
+        "name": "progresses",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "progresses_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "progress_aggregate"
+          }
+        }
+      },
+      {
+        "name": "results",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "results_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "result_aggregate"
+          }
+        }
+      },
+      {
+        "name": "startedWorkingAt",
+        "type": {
+          "kind": "SCALAR",
+          "name": "timestamptz",
+          "ofType": null
+        }
+      },
+      {
+        "name": "status",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "group_status_enum"
+          }
+        }
+      },
+      {
+        "name": "tasks",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "updatedAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "__type": {
+    "name": "role",
+    "fields": [
+      {
+        "name": "createdAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "description",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "id",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "Int"
+          }
+        }
+      },
+      {
+        "name": "name",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "slug",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String"
+          }
+        }
+      },
+      {
+        "name": "updatedAt",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "timestamptz"
+          }
+        }
+      },
+      {
+        "name": "user_roles",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "LIST",
+            "name": null
+          }
+        }
+      },
+      {
+        "name": "user_roles_aggregate",
+        "type": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "OBJECT",
+            "name": "user_role_aggregate"
+          }
+        }
+      }
+    ]
+  }
+}
