@@ -53,7 +53,9 @@ export async function showProgressPage(app) {
         "click",
         async () => {
 
-            initHome();
+            await renderProgressPage(
+                app
+            );
 
         }
     );
@@ -153,9 +155,7 @@ async function renderProgressPage(app) {
         "click",
         async () => {
 
-            await showProgressPage(
-                app
-            );
+            initHome();
 
         }
     );
