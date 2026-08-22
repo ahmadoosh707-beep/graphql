@@ -156,7 +156,6 @@ async function renderProgressPage(app) {
         async () => {
 
             initHome();
-
         }
     );
 
