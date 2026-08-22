@@ -4,6 +4,7 @@ import { createProfileMarkup } from "./profile.js";
 import { createProgressSVG, getXPTree } from "../helpers/progress.js";
 import { renderXPChart } from "../../js/charts.js";
 import { renderSvgView } from "./svg.js";
+import { initHome } from "../../js/home.js"
 
 export async function showProgressPage(app) {
 
@@ -52,9 +53,7 @@ export async function showProgressPage(app) {
         "click",
         async () => {
 
-            await renderProgressPage(
-                app
-            );
+            initHome();
 
         }
     );
